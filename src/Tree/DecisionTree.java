@@ -64,7 +64,7 @@ public final class DecisionTree implements Serializable{
                 .collect(Collectors.toList());
         int index = new Random().nextInt(nonleafList.size());
         Node randomIndicator = nonleafList.get(index);
-        if(randomIndicator != null){
+        if(randomIndicator != null && randomIndicator.parent != null){
             if(randomIndicator.parent.left == randomIndicator)
                 randomIndicator.parent.left = DecisionNode.getRandomNode();
             else
@@ -92,6 +92,8 @@ public final class DecisionTree implements Serializable{
         
         if(nonleafList.isEmpty())
             return null;
+        if(nonleafList.size()==1)
+            return nonleafList.get(0);
         int randomIndex = new Random().nextInt(nonleafList.size());
         // Avoid sending root node
         if(randomIndex == 0)

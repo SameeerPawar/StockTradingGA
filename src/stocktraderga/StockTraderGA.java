@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 public class StockTraderGA {
     public static final int GENERATIONS = 2000;
     public static final int POPULATION_SIZE = 50;
-    public static final int INIT_TREE_SIZE = 20;
+    public static final int INIT_TREE_SIZE = 30;
     /**
      * @param args the command line arguments
      */

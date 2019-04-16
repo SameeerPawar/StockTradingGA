@@ -21,21 +21,21 @@ public class Algorithms {
     
     // CrossOver Probabilities
     private static final double INITIAL_PROBABILITY = 0.75;
-    private static final double FINAL_PROBABILITY = 0.3;
+    private static final double FINAL_PROBABILITY = 0.35;
     
     // Selection replace Probabilities
     private static final double REPLACE_INIT = 0.6;
-    private static final double REPLACE_FINAL = 0.2;
+    private static final double REPLACE_FINAL = 0.3;
     
     // Mutation Probabilities
     private static final double GROW_RATE_INIT = 0.9;
     private static final double GROW_RATE_FINAL = 0.4;
     private static final double DELETE_RATE_INIT = 0.0;
-    private static final double DELETE_RATE_FINAL = 0.3;
+    private static final double DELETE_RATE_FINAL = 0.25;
     private static final double INDICATOR_RATE_INIT = 0.6;
-    private static final double INDICATOR_RATE_FINAL = 0.1;
+    private static final double INDICATOR_RATE_FINAL = 0.25;
     private static final double INEQ_RATE_INIT = 0.6;
-    private static final double INEQ_RATE_FINAL = 0.1;
+    private static final double INEQ_RATE_FINAL = 0.25;
     private static final double DECISION_RATE_INIT = 0.5;
     private static final double DECISION_RATE_FINAL = 0.1;
     
@@ -105,7 +105,7 @@ public class Algorithms {
                 Genome genomeB = population.get(random.nextInt(population.size())).clone();
                 Node nodeA = genomeA.getDecisionTree().getRandomNonleafNode();
                 Node nodeB = genomeB.getDecisionTree().getRandomNonleafNode();
-                if(nodeA == null || nodeB == null)
+                if(nodeA == null || nodeB == null || nodeA.parent == null || nodeB.parent == null)
                     continue;
                 // Swap nodes
                 if(nodeA.parent.left == nodeA)
